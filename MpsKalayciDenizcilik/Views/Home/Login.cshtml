@@ -1,0 +1,31 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/logincss.css" rel="stylesheet" />
+
+<div class="wrapper " style="margin-left:35%">
+	<div asp-validation-summary="ModelOnly" class="text-danger" style="margin-top:-64px"></div>
+	<div class="logo">
+		<img src="~/Template/img/kalayci_denizcilik_logo_Temiz.png" alt="">
+	</div>
+	<div class="text-center mt-4 name">
+		Kalayci Denizcilik
+	</div>
+	<form class="p-3 mt-3" asp-controller="Home" asp-action="Login" method="post">
+		<div class="form-field d-flex align-items-center">
+			<span class="far fa-user"></span>
+			<input asp-for="@Model.UserName" type="text" name="userName" id="userName" placeholder="Kullanıcı adınız">
+		</div>
+		<div class="form-field d-flex align-items-center">
+			<span class="fas fa-key"></span>
+			<input asp-for="@Model.Password" type="password" name="password" id="pwd" placeholder="Şifreniz">
+		</div>
+
+		<button type="submit" class="btn mt-3">Giriş Yap</button>
+	</form>
+
+</div>
+
+
