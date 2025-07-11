@@ -11,16 +11,15 @@ namespace Core.Concrete.ViewModels.Employee
     public class EmployeeViewModel : MpsStandardBaseEntity
     {
         // Sadece Personel Kaydı yapılırken Gerekecek Zorunlu bilgiler.
-
         public string Name { get; set; }
         public string LastName { get; set; }
         public string SgkRegistrationNumber { get; set; }
-        public string TcNumber { get; set; }
+        public ulong TcNumber { get; set; }
         public DateTime BirthDayDate { get; set; }
         public bool Gender { get; set; }// True erkek False Kadın
-        public string Phone { get; set; }
-     
+        public ulong Phone { get; set; }
         public DateTime WorkStartDate { get; set; }
+        public string Picture { get; set; }
 
 
 
@@ -36,6 +35,7 @@ namespace Core.Concrete.ViewModels.Employee
 
         public EmployeeUserViewModel EmployeeUser { get; set; }
         public ICollection<EmployeeScoreCardViewModel> ScoreCard { get; set; }
+
 
         public ICollection<SpoolWorkShopWeldingViewModel> SpoolWorkShopWelding { get; set; } //  Yaptığı Kaynaklar
         public ICollection<SpoolWorkShopAssemblyViewModel> SpoolWorkShopAssembly { get; set; } // Yaptığı imalatlar

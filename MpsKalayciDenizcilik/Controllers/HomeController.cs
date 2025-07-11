@@ -11,6 +11,13 @@ namespace MpsKalayciDenizcilik.Controllers
     public class HomeController : Controller
     {
 
+        private readonly ILogger<HomeController> _logger;
+        private readonly IMpsUserService _userService;
+        public HomeController(ILogger<HomeController> logger, IMpsUserService userService)
+        {
+            _userService = userService;
+            _logger = logger;
+        }
 
         private readonly Dictionary<string, object> RoleRedirects = new()
                 {
@@ -24,9 +31,7 @@ namespace MpsKalayciDenizcilik.Controllers
                     { "Engineer", new { area = "Engineer" } },
                     { "TrackingUser", new { area = "TrackingUser" } },
                     { "Stock", new { area = "Stock" } },
-
                 };
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -35,14 +40,12 @@ namespace MpsKalayciDenizcilik.Controllers
                 ModelState.AddModelError("", "Geçersiz kullanıcı adı veya şifresi");
                 return View(model);
             }
-
             string result = await _userService.Login(model);
             if (result != "Success")
             {
                 ModelState.AddModelError("", result);
                 return View(model);
             }
-
             var userRoles = await _userService.GetRolesAsync(model.UserName);
             foreach (var role in userRoles)
             {
@@ -51,27 +54,11 @@ namespace MpsKalayciDenizcilik.Controllers
                     return RedirectToAction("Index", "Home", area);
                 }
             }
-
             return RedirectToAction("Index", "Home");
         }
 
 
 
-
-
-
-
-
-
-
-        private readonly ILogger<HomeController> _logger;
-        private readonly IMpsUserService _userService;
-
-        public HomeController(ILogger<HomeController> logger, IMpsUserService userService)
-        {
-            _userService = userService;
-            _logger = logger;
-        }
 
 
         [HttpGet]
@@ -81,52 +68,7 @@ namespace MpsKalayciDenizcilik.Controllers
         }
 
 
-
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        ModelState.AddModelError("", "Geçersiz kullanıcı adı veya şifresi");
-        //        return View(model);
-        //    }
-
-        //    string result = await _userService.Login(model);
-        //    if (result != "Success")
-        //    {
-        //        ModelState.AddModelError("", result);
-        //        return View(model);
-        //    }
-
-        //    var userRoles = await _userService.GetRolesAsync(model.UserName);
-
-
-
-
-        //    Dictionary<string, string> RoleAreaMap = new()
-        //        {
-        //            { "Admin", "Admin" },
-        //            { "Manager", "Manager" },
-        //            { "WorkShopManager", "WorkShopManager" },
-        //            { "WorkShopEmployee", "WorkShopEmployee" },
-        //            { "TallyClerk", "TallyClerk" },
-        //            { "ChefEngineer", "ChefEngineer" },
-        //            { "Engineer", "Engineer" },
-        //            { "Stock", "Stock" },
-        //            { "TrackingUser", "TrackingUser" }
-        //        };
-        //    var matchedRole = userRoles.FirstOrDefault(role => RoleAreaMap.ContainsKey(role));
-        //    if (matchedRole != null)
-        //    {
-        //        string area = RoleAreaMap[matchedRole];
-        //        return RedirectToAction("Index", "Home", new { area });
-        //    }
-
-        //    ModelState.AddModelError("", "Kullanıcı rolü bulunamadı");
-        //    return View(model);
-        //}
+         
 
 
 

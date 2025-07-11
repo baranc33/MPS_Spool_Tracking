@@ -6,18 +6,24 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
     public class Spool : MpsStandardBaseEntity, IMpsEntity
     {
-         
-        public DateTime CuttingTime { get; set; }
         public ushort No { get; set; }
+        public float TotalKg { get; set; }
+
+        public string Note { get; set; }
+        public ulong CircutSystemId { get; set; }
+        public CircutSystem CircutSystem { get; set; }
+
+
+
+        public DateTime CuttingTime { get; set; }
         public string SpoolName { get; set; }// 30
         public byte spoolStatus { get; set; } // spool nerde 
 
         // Tersane = 0,  Asit = 1, Galvaniz = 2,  Boya=3
         public byte SendingLocation { get; set; }
         public ushort Diameter { get; set; }
-        public float TotalKg { get; set; }
 
-        public string Note { get; set; }
+    
 
         public bool AssemblyOur { get; set; }
         public bool WorkPlaceOur { get; set; }
@@ -27,11 +33,7 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 
 
 
-
-
-        public ulong CircutSystemId { get; set; }
-        public CircutSystem CircutSystem { get; set; }
-
+         
 
         public SpoolWorkShopAssembly SpoolWorkShopAssembly { get; set; }
         public SpoolWorkShopWelding SpoolWorkShopWelding { get; set; }

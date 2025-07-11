@@ -22,7 +22,7 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 
 
         // proje adı
-        public string ProjectName { get; set; } = "1";
+        public string ProjectName { get; set; } 
 
         // Proje sorumlusu
         public ulong ProjectManagerId { get; set; }

@@ -3,6 +3,67 @@
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
+ /**
+ * Closes all open dropdown menus in the document.
+ * Optionally, the event can be used to prevent closing in certain conditions.
+ *
+ /**
+ * Closes all open dropdown menus unless the event target should keep them open.
+ *@**/
+// Constants for event types and keys
+const EVENT_TYPE_CLICK = 'click';
+const EVENT_TYPE_KEYUP = 'keyup';
+const RIGHT_MOUSE_BUTTON = 2;
+const TAB_KEY = 'Tab';
+
+// Helper for event filtering
+function shouldIgnoreEvent(event) {
+    if (!event) return false;
+    if (event.button === RIGHT_MOUSE_BUTTON) return true;
+    if (event.type === EVENT_TYPE_KEYUP && event.key !== TAB_KEY) return true;
+    return false;
+}
+
+static clearMenus(event) {
+    if (shouldIgnoreEvent(event)) return;
+
+    const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE$3);
+
+    toggles.forEach(toggle => {
+        const context = Dropdown.getInstance(toggle);
+        if (!context || context._config.autoClose === false || !context._isShown()) return;
+
+        const relatedTarget = { relatedTarget: context._element };
+        if (event) {
+            const composedPath = event.composedPath();
+            const isMenuTarget = composedPath.includes(context._menu);
+
+            const shouldClose =
+                !(
+                    composedPath.includes(context._element) ||
+                    (context._config.autoClose === 'inside' && !isMenuTarget) ||
+                    (context._config.autoClose === 'outside' && isMenuTarget)
+                );
+
+            if (!shouldClose) return;
+
+            if (context._menu.contains(event.target) &&
+                ((event.type === EVENT_TYPE_KEYUP && event.key === TAB_KEY) ||
+                    /input|select|option|textarea|form/i.test(event.target.tagName))) {
+                return;
+            }
+
+            if (event.type === EVENT_TYPE_CLICK) {
+                relatedTarget.clickEvent = event;
+            }
+        }
+
+        context._completeHide(relatedTarget);
+    });
+}
+
+
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core')) :
   typeof define === 'function' && define.amd ? define(['@popperjs/core'], factory) :

@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using Core.Concrete.Entities.DataBaseTable.EmployeeData;
-using Core.Concrete.Entities.DataBaseTable.UsersData;
+﻿using Core.Concrete.Entities.DataBaseTable.EmployeeData;
 using Core.Concrete.Entities.DataBaseTable.SpoolTracking;
+using Core.Concrete.Entities.DataBaseTable.UsersData;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccess.Mapping
 {
@@ -31,20 +31,17 @@ namespace DataAccess.Mapping
 
             builder.Property(r => r.Name).IsRequired(true);
             builder.Property(r => r.Name).HasMaxLength(50);
+            builder.Property(r => r.Picture).IsRequired(true);
+            builder.Property(r => r.Picture).HasMaxLength(50);
 
             builder.Property(r => r.LastName).IsRequired(true);
             builder.Property(r => r.LastName).HasMaxLength(50);
 
             builder.Property(r => r.SgkRegistrationNumber).IsRequired(true);
-            builder.Property(r => r.SgkRegistrationNumber).HasMaxLength(50);
+            builder.Property(r => r.SgkRegistrationNumber).HasMaxLength(30);
 
 
             builder.Property(r => r.TcNumber).IsRequired(true);
-            builder.Property(r => r.TcNumber).HasMaxLength(11);
-
-
-
-            builder.Property(r => r.Phone).HasMaxLength(15);
             builder.Property(r => r.Phone).IsRequired(true);
 
             builder.Property(r => r.WorkStartDate).IsRequired(true);
@@ -52,12 +49,7 @@ namespace DataAccess.Mapping
             builder.Property(r => r.ShipYardId).IsRequired(true);
 
 
-
-
-
-
-
-            //builder.HasOne(a => a.WorkPlace).WithOne(u => u.spool).HasForeignKey<WorkPlace>(s => s.spoolId);
+             
      
             builder.HasOne(a => a.EmployeeUser).WithOne(u => u.Employee).HasForeignKey<EmployeeUser>(s => s.EmployeeId);
 

@@ -32,7 +32,7 @@ namespace DataAccess.Mapping
 
 
 
-            builder.HasOne<Project>(a => a.Project).WithMany(u => u.CircutSystem).HasForeignKey(a => a.ProjectId);
+            builder.HasOne<Project>(a => a.Project).WithMany(u => u.CircutSystems).HasForeignKey(a => a.ProjectId);
         }
     }
 }
