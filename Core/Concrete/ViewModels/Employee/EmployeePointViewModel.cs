@@ -2,11 +2,10 @@
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeePointViewModel : MpsStandartBaseEntity
+    public class EmployeePointViewModel : MpsStandardBaseEntity
     {// Hangi Personel
         public ulong EmployeeId { get; set; }
         public EmployeeViewModel Employee { get; set; }
-
 
         public byte TeamWorkPoint { get; set; }
         public byte JabTrackingPoint { get; set; }

@@ -6,12 +6,13 @@ using Core.Concrete.ViewModels.SpoolNavigator;
 
 namespace Core.Concrete.ViewModels.SpoolAssembly
 {
-    public class SpoolAssemblyViewModel : MpsStandartBaseEntity
+    public class SpoolAssemblyViewModel : MpsStandardBaseEntity
     {
         public DateTime AssemblyTime { get; set; }
         public ulong AssemblyEmployeeId { get; set; }
         public EmployeeViewModel AssemblyEmployee { get; set; }
         public ushort AssemblyKg { get; set; }
+
 
 
         public SpoolNavigatorViewModel SpoolNavigator { get; set; }

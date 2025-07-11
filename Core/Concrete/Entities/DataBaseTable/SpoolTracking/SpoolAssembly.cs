@@ -5,7 +5,7 @@ using Core.Concrete.Entities.DataBaseTable.UsersData;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class SpoolAssembly :MpsStandartBaseEntity,IMpsEntity
+    public class SpoolAssembly :MpsStandardBaseEntity,IMpsEntity
     {
 
         public DateTime AssemblyTime { get; set; }

@@ -5,13 +5,14 @@ using Core.Concrete.ViewModels.SpoolNavigator;
 
 namespace Core.Concrete.ViewModels.SpoolWorkShopWelding
 {
-    public class SpoolWorkShopWeldingViewModel : MpsStandartBaseEntity
+    public class SpoolWorkShopWeldingViewModel : MpsStandardBaseEntity
     {
 
 
         public bool RootWeldingOn { get; set; } // Kök Kaynak Varmı
         public DateTime RootWeldingTime { get; set; }
         public ulong RootWeldingEmployeeId { get; set; }
+
         public EmployeeViewModel RootWeldingEmployee { get; set; }
 
         public DateTime CoverWeldingTime { get; set; }

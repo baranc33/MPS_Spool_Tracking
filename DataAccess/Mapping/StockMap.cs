@@ -11,7 +11,7 @@ namespace DataAccess.Mapping
         {
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
-            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.IsDeleted).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
             builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
@@ -21,13 +21,7 @@ namespace DataAccess.Mapping
             builder.Property(r => r.EntryTime).IsRequired(true);
             builder.Property(r => r.CreateDate).HasColumnType("date");
 
-            //builder.Property(r => r.CreateDate.ToString("dd/MM/yyyy hh"));
-            //builder.Property(r => r.ModifiedTime.ToString("dd/MM/yyyy hh:mm"));
-            //builder.Property(r => r.EntryTime.ToString("dd/MM/yyyy hh:mm"));
-            //builder.Property(r => r.ExitTime.ToString("dd/MM/yyyy hh:mm"));
-
-
-            //builder.Property(r => r.CreateDate).Must(BirthDateValidator).WithMessage("Error date!");
+             
 
             builder.Property(r => r.Name).IsRequired(true);
             builder.Property(r => r.Name).HasMaxLength(50);

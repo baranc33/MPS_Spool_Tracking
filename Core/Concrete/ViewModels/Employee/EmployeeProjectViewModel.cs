@@ -4,7 +4,7 @@ using Core.Concrete.ViewModels.Project;
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeProjectViewModel : MpsStandartBaseEntity
+    public class EmployeeProjectViewModel : MpsStandardBaseEntity
     {
         // Hangi Personel
         public ulong EmployeeId { get; set; }
@@ -12,7 +12,6 @@ namespace Core.Concrete.ViewModels.Employee
         // projedeki pozisyonu
         public ulong BranchId { get; set; }
         public BranchViewModel Branch { get; set; }
-
 
         public ulong EmployeeWorkId { get; set; }
         public EmployeeWorkViewModel EmployeeWork { get; set; }//=> Personelin Yaptığı iş

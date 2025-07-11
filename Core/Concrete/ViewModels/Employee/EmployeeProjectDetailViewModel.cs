@@ -4,7 +4,7 @@ using Core.Concrete.ViewModels.Project;
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeProjectDetailViewModel : MpsStandartBaseEntity
+    public class EmployeeProjectDetailViewModel : MpsStandardBaseEntity
     {
         // Hangi Personel
         public ulong EmployeeId { get; set; }

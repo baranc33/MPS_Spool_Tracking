@@ -2,7 +2,7 @@
 
 namespace Core.Concrete.ViewModels.OtomaticSystemCode
 {
-    public class OtomaticSystemCodeViewModel : MpsStandartBaseEntity
+    public class OtomaticSystemCodeViewModel : MpsStandardBaseEntity
     {
         public uint ManuelId { get; set; } //=> Oluşturulan veri yada koda özel erişim için                    
 

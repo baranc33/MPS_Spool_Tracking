@@ -3,7 +3,7 @@ using Core.Concrete.Entities.DataBaseTable.EmployeeData;
 
 namespace MpsService.Mapping.ScoreCard
 {
-    public static class ScoreCardMpsMapper
+    public static class EmployeeScoreCardMpsMapper
     // EmployeeScoreCard To ViewModel
     {
         public static EmployeeScoreCardViewModel ToEmployeeScoreCardViewModel(EmployeeScoreCard model)
@@ -11,12 +11,12 @@ namespace MpsService.Mapping.ScoreCard
             return new EmployeeScoreCardViewModel
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
             };
         }
@@ -26,12 +26,12 @@ namespace MpsService.Mapping.ScoreCard
             return new EmployeeScoreCard
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
 
 

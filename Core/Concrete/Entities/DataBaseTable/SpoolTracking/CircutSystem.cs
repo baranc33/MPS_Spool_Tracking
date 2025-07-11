@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class CircutSystem : MpsStandartBaseEntity, IMpsEntity
+    public class CircutSystem : MpsStandardBaseEntity, IMpsEntity
     {
         public string SystemName { get; set; }
 

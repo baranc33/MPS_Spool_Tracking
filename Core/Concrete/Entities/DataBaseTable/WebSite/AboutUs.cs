@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.WebSite
 {
-    public class AboutUs : MpsStandartBaseEntity, IMpsEntity
+    public class AboutUs : MpsStandardBaseEntity, IMpsEntity
     {
         public AboutUs()
         {

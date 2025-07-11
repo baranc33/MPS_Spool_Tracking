@@ -5,25 +5,24 @@ using Core.Concrete.Entities.DataBaseTable.UsersData;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class Project: MpsStandartBaseEntity,IMpsEntity
+    public class Project : MpsStandardBaseEntity, IMpsEntity
     {
 
-        // hangi tershaneye bağlı
-        public ulong ShipYardId { get; set; }
+        // Associated shipyard
         public ShipYard ShipYard { get; set; }
+        public ulong ShipYardId { get; set; }
 
-        public ICollection<CircutSystem> CircutSystem { get; set; }
+        // List of circuit systems for the project
+        public ICollection<CircutSystem> CircutSystems { get; set; }
         public ICollection<SpoolNavigator> SpoolNavigators { get; set; }
-        public ICollection<EmployeeProject>  EmployeeProjects { get; set; }
+        public ICollection<EmployeeProject> EmployeeProjects { get; set; }
 
-   
         public DateTime ProjectStartDate { get; set; } = DateTime.Now;
         public DateTime? ProjectFinishDate { get; set; } = null; // proje bitiş tarihi opsiyonel olabilir. çünkü bitmeyen projeler var.
 
 
         // proje adı
-        public string ProjectName { get; set; } 
-
+        public string ProjectName { get; set; } = "1";
 
         // Proje sorumlusu
         public ulong ProjectManagerId { get; set; }

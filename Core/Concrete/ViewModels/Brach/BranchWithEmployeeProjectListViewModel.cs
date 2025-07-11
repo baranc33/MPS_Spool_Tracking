@@ -3,7 +3,7 @@ using Core.Concrete.ViewModels.Employee;
 
 namespace Core.Concrete.ViewModels.Brach
 {
-    public class BranchWithEmployeeProjectListViewModel : MpsStandartBaseEntity
+    public class BranchWithEmployeeProjectListViewModel : MpsStandardBaseEntity
     {
 
 

@@ -4,7 +4,7 @@ using Core.Concrete.Entities.DataBaseTable.EmployeeData;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class SpoolWorkShopAssembly : MpsStandartBaseEntity, IMpsEntity
+    public class SpoolWorkShopAssembly : MpsStandardBaseEntity, IMpsEntity
     {
         public ulong SpoolWorkShopAssemblyEmployeeId { get; set; }
         public Employee SpoolWorkShopAssemblyEmployee { get; set; }

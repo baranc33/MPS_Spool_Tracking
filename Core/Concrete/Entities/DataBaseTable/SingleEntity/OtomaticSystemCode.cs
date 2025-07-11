@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.SingleEntity
 {
-    public class OtomaticSystemCode : MpsStandartBaseEntity,IMpsEntity
+    public class OtomaticSystemCode : MpsStandardBaseEntity,IMpsEntity
     {
         public OtomaticSystemCode()
         {

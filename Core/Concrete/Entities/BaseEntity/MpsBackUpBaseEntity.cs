@@ -1,21 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Concrete.Entities.BaseEntity
+﻿namespace Core.Concrete.Entities.BaseEntity
 {
-    public class MpsBackUpBaseEntity:MpsStandartBaseEntity
-    {
-        public MpsBackUpBaseEntity()
-        {
-            // BackUpDosyaları silinemez.
-            ReallyDeleted = false;
-        }
-        public string UserId { get; set; } = "System"; //=> Değişikliği Yapan Kullanıcı.
-        public string Message { get; set; } = "System"; //=> Kim Nezaman Neyi Değiştirdi.
-        public int BackUpCounter { get; set; } // Veride Yapılan Değişiklik Sayısını tutar
 
+
+    /// <summary>
+    /// Denetim bilgilerine sahip bir yedek varlığı temsil eder.
+    /// </summary>
+    public sealed class MpsBackUpBaseEntity : MpsStandardBaseEntity
+    {
+        private const string DefaultUserId = "System";
+        private const string DefaultMessage = "System";
+        /// <summary>
+        /// <see cref="MpsBackUpBaseEntity"/> sınıfının yeni bir örneğini başlatır.
+        /// </summary>
+        /// <param name="userId">Değişikliği yapan kullanıcı.</param>
+        /// <param name="message">Değişikliğin açıklaması.</param>
+        /// <param name="backUpCounter">Verilerde yapılan değişiklik sayısı.</param>
+        public MpsBackUpBaseEntity(
+                string userId = DefaultUserId,
+                string message = DefaultMessage,
+                int backUpCounter = 0)
+        {
+            // BackUp files cannot be deleted.
+            ReallyDeleted = false;
+            UserId = userId;
+            Message = message;
+            BackUpCounter = backUpCounter;
+        }
+
+        /// <summary>
+        /// Değişikliği yapan kullanıcıyı alır veya ayarlar.
+        /// </summary>
+        public string UserId { get; set; }
+        /// <summary>
+        /// Neyin ne zaman değiştirildiğinin açıklamasını alır veya ayarlar.
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Verilerde yapılan değişikliklerin sayısını alır veya ayarlar.
+        /// </summary>
+        public int BackUpCounter { get; set; }
     }
 }

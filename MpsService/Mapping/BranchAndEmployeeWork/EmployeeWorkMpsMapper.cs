@@ -11,12 +11,12 @@ namespace MpsService.Mapping.BranchAndEmployeeWork
             return new EmployeeWorkViewModel
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
                 WorkName = model.WorkName,
                 WorkDetail = model.WorkDetail,
@@ -28,12 +28,12 @@ namespace MpsService.Mapping.BranchAndEmployeeWork
             return new EmployeeWork
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
                 WorkName = model.WorkName,
                 WorkDetail = model.WorkDetail,

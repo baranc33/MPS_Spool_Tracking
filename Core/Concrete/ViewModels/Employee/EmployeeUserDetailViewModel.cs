@@ -6,7 +6,7 @@ using Core.Concrete.ViewModels.User;
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeUserDetailViewModel : MpsStandartBaseEntity
+    public class EmployeeUserDetailViewModel : MpsStandardBaseEntity
     {
         // bu tablo personel bilgileriyle kullanıcı bilgilerine hızlıca erişip işlem yapabilmek içindir.
         // Kullanıcı => personel => branş zincirlemesinde 

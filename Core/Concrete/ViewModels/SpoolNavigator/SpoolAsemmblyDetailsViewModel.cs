@@ -3,7 +3,7 @@ using Core.Concrete.ViewModels.Employee;
 
 namespace Core.Concrete.ViewModels.SpoolNavigator
 {
-    public class SpoolAsemmblyDetailsViewModel : MpsStandartBaseEntity// spoolun bilgilerini tutcak base entityde
+    public class SpoolAsemmblyDetailsViewModel : MpsStandardBaseEntity// spoolun bilgilerini tutcak base entityde
     {
 
        

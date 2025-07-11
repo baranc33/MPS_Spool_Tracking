@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 {
-    public class EmployeePoint:MpsStandartBaseEntity,IMpsEntity
+    public class EmployeePoint:MpsStandardBaseEntity,IMpsEntity
     {
         // Hangi Personel
         public ulong EmployeeId { get; set; }

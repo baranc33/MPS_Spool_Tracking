@@ -3,7 +3,7 @@ using Core.Concrete.ViewModels.Employee;
 
 namespace Core.Concrete.ViewModels.SpoolNavigator
 {
-    public class SpoolWorkShopDetailsViewModel : MpsStandartBaseEntity// spoolun bilgilerini tutcak base entityde
+    public class SpoolWorkShopDetailsViewModel : MpsStandardBaseEntity// spoolun bilgilerini tutcak base entityde
     {
 
         public string ShipYardName { get; set; }

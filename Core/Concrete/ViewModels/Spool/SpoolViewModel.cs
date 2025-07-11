@@ -7,10 +7,11 @@ using Core.Concrete.ViewModels.SpoolWorkShopWelding;
 
 namespace Core.Concrete.ViewModels.Spool
 {
-    public class SpoolViewModel : MpsStandartBaseEntity
+    public class SpoolViewModel : MpsStandardBaseEntity
     { // oluşturan değiştiren ve tarihleri içersindeki Navigasyon tablosundaolacaktır
         public DateTime CuttingTime { get; set; }
         public ushort No { get; set; }
+
         public string SpoolName { get; set; }// 30
         public byte spoolStatus { get; set; } // spool nerde 
 

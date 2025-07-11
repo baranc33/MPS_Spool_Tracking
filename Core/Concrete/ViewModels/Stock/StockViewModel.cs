@@ -2,7 +2,7 @@
 
 namespace Core.Concrete.ViewModels.Stock
 {
-    public class StockViewModel : MpsStandartBaseEntity
+    public class StockViewModel : MpsStandardBaseEntity
     {
         public uint No { get; set; }
         public string Name { get; set; }

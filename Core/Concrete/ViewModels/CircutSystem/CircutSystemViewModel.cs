@@ -5,8 +5,9 @@ using Core.Concrete.ViewModels.SpoolNavigator;
 
 namespace Core.Concrete.ViewModels.CircutSystem
 {
-    public class CircutSystemViewModel : MpsStandartBaseEntity
+    public class CircutSystemViewModel : MpsStandardBaseEntity
     {
+
         public DateTime CircutSystemStartDate { get; set; }
         public DateTime CircutSystemFinishDate { get; set; }
         public string SystemName { get; set; }
@@ -20,7 +21,7 @@ namespace Core.Concrete.ViewModels.CircutSystem
 
     
        
-    public class CircutSystemDetailViewModel : MpsStandartBaseEntity
+    public class CircutSystemDetailViewModel : MpsStandardBaseEntity
     {
         public DateTime CircutSystemStartTime { get; set; }
         public DateTime CircutSystemFinishTime { get; set; }

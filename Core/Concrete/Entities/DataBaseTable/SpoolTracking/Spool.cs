@@ -4,11 +4,9 @@ using Core.Helper.SpoolMethod;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class Spool : MpsStandartBaseEntity, IMpsEntity
+    public class Spool : MpsStandardBaseEntity, IMpsEntity
     {
-
-
-
+         
         public DateTime CuttingTime { get; set; }
         public ushort No { get; set; }
         public string SpoolName { get; set; }// 30

@@ -10,13 +10,14 @@ namespace MpsService.Mapping.EmployeeAndsExitPointProjectUser
         {
             return new EmployeePointViewModel
             {
+
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
             };
         }
@@ -26,12 +27,12 @@ namespace MpsService.Mapping.EmployeeAndsExitPointProjectUser
             return new EmployeePoint
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
 
 

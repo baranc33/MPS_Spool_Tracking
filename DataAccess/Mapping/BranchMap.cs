@@ -13,7 +13,7 @@ namespace DataAccess.Mapping
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
  
 
-            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.IsDeleted).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
             builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
@@ -40,26 +40,26 @@ namespace DataAccess.Mapping
                   Id=1,
                   BranchName = "Bilgi işlem",
                   BranchDetail="Bilgi işlem departmanı, şirketin bilgi teknolojileri altyapısını yönetir ve destekler.",
-                  IsDelete = false,
+                  IsDeleted = false,
                   IsWork = true,
                   ReallyDeleted = false,
                   ModifiedTime = DateTime.Now,
                   CreateDate = DateTime.Now,
                   ModifiedUserName = "System",
-                  LastBackUpId = 0
+                  LastBackupId = 0
               },
             new Branch
             {
                 Id=2,
                 BranchName = "Mühendis",
                 BranchDetail="Boru Donatım Mühendisi.",
-                IsDelete = false,
+                IsDeleted = false,
                 IsWork = true,
                 ReallyDeleted = false,
                 ModifiedTime = DateTime.Now,
                 CreateDate = DateTime.Now,
                 ModifiedUserName = "System",
-                LastBackUpId = 0
+                LastBackupId = 0
             },
 
               new Branch
@@ -67,52 +67,52 @@ namespace DataAccess.Mapping
                   Id=3,
                   BranchName = "Mühendis",
                   BranchDetail="Boru Donatım Mühendisi.",
-                  IsDelete = false,
+                  IsDeleted = false,
                   IsWork = true,
                   ReallyDeleted = false,
                   ModifiedTime = DateTime.Now,
                   CreateDate = DateTime.Now,
                   ModifiedUserName = "System",
-                  LastBackUpId = 0
+                  LastBackupId = 0
               },
                 new Branch
                 {
                     Id=4,
                     BranchName = "Mühendis",
                     BranchDetail="Boru Donatım Mühendisi.",
-                    IsDelete = false,
+                    IsDeleted = false,
                     IsWork = true,
                     ReallyDeleted = false,
                     ModifiedTime = DateTime.Now,
                     CreateDate = DateTime.Now,
                     ModifiedUserName = "System",
-                    LastBackUpId = 0
+                    LastBackupId = 0
                 },
                   new Branch
                   {
                       Id=5,
                       BranchName = "Mühendis",
                       BranchDetail="Boru Donatım Mühendisi.",
-                      IsDelete = false,
+                      IsDeleted = false,
                       IsWork = true,
                       ReallyDeleted = false,
                       ModifiedTime = DateTime.Now,
                       CreateDate = DateTime.Now,
                       ModifiedUserName = "System",
-                      LastBackUpId = 0
+                      LastBackupId = 0
                   },
                       new Branch
                       {
                           Id=6,
                           BranchName = "Atolye Şefi",
                           BranchDetail="Atolye işleyişinden sorumlu kişi.",
-                          IsDelete = false,
+                          IsDeleted = false,
                           IsWork = true,
                           ReallyDeleted = false,
                           ModifiedTime = DateTime.Now,
                           CreateDate = DateTime.Now,
                           ModifiedUserName = "System",
-                          LastBackUpId = 0
+                          LastBackupId = 0
                       }
 
 

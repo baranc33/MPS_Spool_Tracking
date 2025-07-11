@@ -11,7 +11,7 @@ namespace DataAccess.Mapping
 
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
-            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.IsDeleted).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
             builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
@@ -32,7 +32,7 @@ namespace DataAccess.Mapping
                  Id=1,
                  WorkName = "İmalat Ustası",
                  WorkDetail="Atolyede ön imalat yapan usta",
-                 IsDelete = false,
+                 IsDeleted = false,
                  IsWork = true,
                  ReallyDeleted = false,
                  ModifiedTime = DateTime.Now,
@@ -44,7 +44,7 @@ namespace DataAccess.Mapping
                 Id=2,
                 WorkName = "İmalat Ustası Yardımcısı",
                 WorkDetail="Atolyede ön imalat yapan ustanın yardımcısı",
-                IsDelete = false,
+                IsDeleted = false,
                 IsWork = true,
                 ReallyDeleted = false,
                 ModifiedTime = DateTime.Now,
@@ -56,7 +56,7 @@ namespace DataAccess.Mapping
                 Id=3,
                 WorkName = "Kaynakçı ",
                 WorkDetail="Atolyede Kaynak yapan usta",
-                IsDelete = false,
+                IsDeleted = false,
                 IsWork = true,
                 ReallyDeleted = false,
                 ModifiedTime = DateTime.Now,
@@ -68,7 +68,7 @@ namespace DataAccess.Mapping
                    Id=4,
                    WorkName = "Montaj Ustası ",
                    WorkDetail="Gemiye Montaj yapan usta",
-                   IsDelete = false,
+                   IsDeleted = false,
                    IsWork = true,
                    ReallyDeleted = false,
                    ModifiedTime = DateTime.Now,

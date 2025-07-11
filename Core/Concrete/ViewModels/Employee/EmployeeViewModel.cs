@@ -8,9 +8,10 @@ using Core.Concrete.ViewModels.SpoolWorkShopWelding;
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeViewModel : MpsStandartBaseEntity
+    public class EmployeeViewModel : MpsStandardBaseEntity
     {
         // Sadece Personel Kaydı yapılırken Gerekecek Zorunlu bilgiler.
+
         public string Name { get; set; }
         public string LastName { get; set; }
         public string SgkRegistrationNumber { get; set; }

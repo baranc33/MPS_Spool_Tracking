@@ -1,10 +1,9 @@
 ﻿using Core.Concrete.Entities.BaseEntity;
-using Core.Concrete.ViewModels.Employee;
 using System.ComponentModel.DataAnnotations;
 
 namespace Core.Concrete.ViewModels.Brach
 {
-    public class BranchDetailViewModel : MpsStandardBaseEntity
+    public class AddBranchViewModel : MpsStandardBaseEntity
     {
 
         [Required(ErrorMessage = "Sgk Branş Ad alanı boş bırakılamaz.")]
@@ -19,10 +18,6 @@ namespace Core.Concrete.ViewModels.Brach
         [MaxLength(70, ErrorMessage = "Sgk Branş Detay en Fazla 200 karakter olabilir")]
         public string BranchDetail { get; set; }
 
-
-
-        public ICollection<EmployeeDetailViewModel> Employees { get; set; } = new List<EmployeeDetailViewModel>();
-        public ICollection<EmployeeUserDetailViewModel> EmployeeUsers { get; set; } = new List<EmployeeUserDetailViewModel>();
-        public ICollection<EmployeeProjectDetailViewModel> EmployeeProjects { get; set; } = new List<EmployeeProjectDetailViewModel>();
     }
 }
+

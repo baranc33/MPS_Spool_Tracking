@@ -2,14 +2,13 @@
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeExitViewModel : MpsStandartBaseEntity
+    public class EmployeeExitViewModel : MpsStandardBaseEntity
     {
         // Hangi Personel
         public ulong EmployeeId { get; set; }
         public EmployeeViewModel Employee { get; set; }
 
         // çalıştığı süreçte genel Puan Ortalaması
-
         public byte TeamWorkAveragePoint { get; set; }
         public byte JabTrackingAveragePoint { get; set; }
         public byte ContinuityAveragePoint { get; set; }

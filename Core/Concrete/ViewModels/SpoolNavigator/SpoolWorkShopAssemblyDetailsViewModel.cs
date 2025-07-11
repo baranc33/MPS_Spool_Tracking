@@ -2,7 +2,7 @@
 
 namespace Core.Concrete.ViewModels.SpoolNavigator
 {
-    public class SpoolWorkShopAssemblyDetailsViewModel : MpsStandartBaseEntity// spoolun bilgilerini tutcak base entityde
+    public class SpoolWorkShopAssemblyDetailsViewModel : MpsStandardBaseEntity// spoolun bilgilerini tutcak base entityde
     {
 
         public string ShipYardName { get; set; }

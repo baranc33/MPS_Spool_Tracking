@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Core.Concrete.ViewModels.Employee
 {
-    public class EmployeeWorkViewModel : MpsStandartBaseEntity
+    public class EmployeeWorkViewModel : MpsStandardBaseEntity
     {
       
+
 
 
         [Required(ErrorMessage = "Çalıştığı Branş Ad alanı boş bırakılamaz.")]

@@ -12,12 +12,13 @@ namespace MpsService.Mapping.ShipYardProjectSystemSpoolAndComponents
             return new ProjectViewModel
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
 
             };
@@ -28,12 +29,12 @@ namespace MpsService.Mapping.ShipYardProjectSystemSpoolAndComponents
             return new Project
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 ModifiedTime = model.ModifiedTime,
                 ModifiedUserName = model.ModifiedUserName,
-                LastBackUpId = model.LastBackUpId,
+                LastBackupId = model.LastBackupId,
                 CreateDate = model.CreateDate,
             };
         }

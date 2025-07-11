@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.SingleEntity
 {
-    public class Stock : MpsStandartBaseEntity, IMpsEntity
+    public class Stock : MpsStandardBaseEntity, IMpsEntity
     {
         public uint No{ get; set; }
         public string Name{ get; set; }

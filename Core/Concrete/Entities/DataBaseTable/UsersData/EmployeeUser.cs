@@ -5,7 +5,7 @@ using Core.Concrete.Entities.DataBaseTable.SpoolTracking;
 
 namespace Core.Concrete.Entities.DataBaseTable.UsersData
 {
-    public class EmployeeUser : MpsStandartBaseEntity, IMpsEntity
+    public class EmployeeUser : MpsStandardBaseEntity, IMpsEntity
     {
 
         // bu tablo personel bilgileriyle kullanıcı bilgilerine hızlıca erişip işlem yapabilmek içindir.

@@ -10,7 +10,7 @@
 }(this, (function (Popper) { 'use strict';
 
   function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+    if (e && e.__esModule) return ess
     var n = Object.create(null);
     if (e) {
       Object.keys(e).forEach(function (k) {
@@ -20,7 +20,7 @@
             enumerable: true,
             get: function () {
               return e[k];
-            }
+            } 
           });
         }
       });

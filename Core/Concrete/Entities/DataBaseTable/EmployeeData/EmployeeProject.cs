@@ -5,7 +5,7 @@ using Core.Concrete.Entities.DataBaseTable.UsersData;
 
 namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 {
-    public class EmployeeProject : MpsStandartBaseEntity, IMpsEntity
+    public class EmployeeProject : MpsStandardBaseEntity, IMpsEntity
     {    // Hangi Personel
         public ulong EmployeeId { get; set; }
         public Employee Employee { get; set; }

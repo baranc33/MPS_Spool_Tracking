@@ -11,7 +11,7 @@ namespace Core.Concrete.Entities.DataBaseTable.UsersData
         public string PasswordBackUp { get; set; }
 
         public bool IsWork { get; set; }
-        public bool IsDelete { get; set; }
+        public bool IsDeleted { get; set; }
         public bool ReallyDeleted { get; set; }
         public bool UseForPersonel { get; set; }
 

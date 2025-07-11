@@ -4,16 +4,24 @@ using Core.Concrete.ViewModels.Project;
 
 namespace Core.Concrete.ViewModels.ShipYard
 {
-    public class ShipYardViewModel : MpsStandartBaseEntity
+    public class ShipYardViewModel : MpsStandardBaseEntity
     {
-        // Tersane Adı
         public string ShipYardName { get; set; }
-
-        // Tersane yöneticisi istenirse sadece isminin olacağı bağlantısız bi property.
-        //public string ShipYardManagementName { get; set; } = "Abdurrahman Kalaycı";
-
-        //Tershaneye Bağlı projeler burdan çağırılacak
-        public ICollection<ProjectViewModel> Projects { get; set; }
+        public string ShipYardManagerName { get; set; }
+        public byte ShipYardActiveProject { get; set; }
         public ICollection<EmployeeViewModel> Employees { get; set; }
+        public ICollection<ProjectViewModel> Projects { get; set; }
+
+
+        public ShipYardViewModel()
+        {
+            Projects = new List<ProjectViewModel>();
+            Employees = new List<EmployeeViewModel>();
+            // Optionally, set a default name if truly required
+            ShipYardManagerName = "Default Manager Name";
+            ShipYardName = "Default Shipyard Name";
+            ShipYardActiveProject=1;
+        }
+
     }
 }

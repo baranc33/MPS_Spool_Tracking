@@ -11,7 +11,7 @@ namespace DataAccess.Mapping
 
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
-            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.IsDeleted).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
             builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
@@ -23,6 +23,11 @@ namespace DataAccess.Mapping
 
             builder.Property(r => r.ShipYardName).IsRequired(true);
             builder.Property(r => r.ShipYardName).HasMaxLength(100);
+
+            builder.Property(r => r.ShipYardManagerName).IsRequired(true);
+            builder.Property(r => r.ShipYardManagerName).HasMaxLength(50);
+
+            builder.Property(r => r.ShipYardActiveProject).IsRequired(true);
         }
     }
 }

@@ -3,7 +3,7 @@ using Core.Concrete.Entities.BaseEntity;
 
 namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 {
-    public class EmployeeScoreCard : MpsStandartBaseEntity, IMpsEntity
+    public class EmployeeScoreCard : MpsStandardBaseEntity, IMpsEntity
     {
         public DateTime DayDate { get; set; }
         public byte Status { get; set; }

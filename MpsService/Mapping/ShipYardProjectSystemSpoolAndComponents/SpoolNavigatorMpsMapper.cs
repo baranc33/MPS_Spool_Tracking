@@ -12,7 +12,7 @@ namespace MpsService.Mapping.ShipYardProjectSystemSpoolAndComponents
             return new SpoolNavigatorViewModel
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
         
@@ -25,7 +25,7 @@ namespace MpsService.Mapping.ShipYardProjectSystemSpoolAndComponents
             return new SpoolNavigator
             {
                 Id = model.Id,
-                IsDelete = model.IsDelete,
+                IsDeleted = model.IsDeleted,
                 IsWork = model.IsWork,
                 ReallyDeleted = model.ReallyDeleted,
                 

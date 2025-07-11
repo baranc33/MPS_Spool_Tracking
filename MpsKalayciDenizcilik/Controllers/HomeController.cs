@@ -1,4 +1,4 @@
-using Core.Concrete.ViewModels.User;
+ï»¿using Core.Concrete.ViewModels.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MpsKalayciDenizcilik.Models;
@@ -10,12 +10,49 @@ namespace MpsKalayciDenizcilik.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IMpsUserService _userService;
-        public HomeController(ILogger<HomeController> logger, IMpsUserService userService)
+
+
+        private readonly Dictionary<string, object> RoleRedirects = new()
+                {
+                    { "Admin", new { area = "Admin" } },
+                    { "Manager", new { area = "Manager" } },
+                    { "WorkShopManager", new { area = "WorkShopManager" } },
+                    { "WorkShopEmployee", new { area = "WorkShopEmployee" } },
+                    { "WorkShopEmployee", new { area = "WorkShopEmployee" } },
+                    { "TallyClerk", new { area = "TallyClerk" } },
+                    { "ChefEngineer", new { area = "ChefEngineer" } },
+                    { "Engineer", new { area = "Engineer" } },
+                    { "TrackingUser", new { area = "TrackingUser" } },
+                    { "Stock", new { area = "Stock" } },
+
+                };
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            _userService=userService;
-            _logger = logger;
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "GeÃ§ersiz kullanÄ±cÄ± adÄ± veya ÅŸifresi");
+                return View(model);
+            }
+
+            string result = await _userService.Login(model);
+            if (result != "Success")
+            {
+                ModelState.AddModelError("", result);
+                return View(model);
+            }
+
+            var userRoles = await _userService.GetRolesAsync(model.UserName);
+            foreach (var role in userRoles)
+            {
+                if (RoleRedirects.TryGetValue(role, out var area))
+                {
+                    return RedirectToAction("Index", "Home", area);
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -27,6 +64,14 @@ namespace MpsKalayciDenizcilik.Controllers
 
 
 
+        private readonly ILogger<HomeController> _logger;
+        private readonly IMpsUserService _userService;
+
+        public HomeController(ILogger<HomeController> logger, IMpsUserService userService)
+        {
+            _userService = userService;
+            _logger = logger;
+        }
 
 
         [HttpGet]
@@ -35,49 +80,54 @@ namespace MpsKalayciDenizcilik.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-
-            if (ModelState.IsValid)
-            {
-                string result = await _userService.Login(model);
-                if (result!="Success")
-                    ModelState.AddModelError("", result);
-                else
-                {
-                    // giriþ baþarýlý
-               
-                    ICollection<string> userRoles = await _userService.GetRolesAsync(model.UserName);
 
 
-                    foreach (var item in userRoles)
-                    {
-
-                        switch (item)
-                        {
-                            case "Admin": return RedirectToAction("Index", "Home", new { area = "Admin" });
-                            case "Manager": return RedirectToAction("Index", "Home", new { area = "Manager" });
-                            case "WorkShopManager": return RedirectToAction("Index", "Home", new { area = "WorkShopManager" });
-                            case "WorkShopEmployee": return RedirectToAction("Index", "Home", new { area = "WorkShopEmployee" });
-                            case "TallyClerk": return RedirectToAction("Index", "Home", new { area = "TallyClerk" });
-                            case "ChefEngineer": return RedirectToAction("Index", "Home", new { area = "ChefEngineer" });
-                            case "Engineer": return RedirectToAction("Index", "Home", new { area = "Engineer" });
-                            case "Stock": return RedirectToAction("Index", "Home", new { area = "Stock" });
-                            case "TrackingUser": return RedirectToAction("Index", "Home", new { area = "TrackingUser" });
-
-                        }
-                       
-                    }
 
 
-                }
-            }
-            else
-                ModelState.AddModelError("", "Geçersiz kullanýcý adý veya  þifresi");
+        //[HttpPost]
+        //public async Task<IActionResult> Login(LoginViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ModelState.AddModelError("", "GeÃ§ersiz kullanÄ±cÄ± adÄ± veya ÅŸifresi");
+        //        return View(model);
+        //    }
 
-            return View(model);
-        }
+        //    string result = await _userService.Login(model);
+        //    if (result != "Success")
+        //    {
+        //        ModelState.AddModelError("", result);
+        //        return View(model);
+        //    }
+
+        //    var userRoles = await _userService.GetRolesAsync(model.UserName);
+
+
+
+
+        //    Dictionary<string, string> RoleAreaMap = new()
+        //        {
+        //            { "Admin", "Admin" },
+        //            { "Manager", "Manager" },
+        //            { "WorkShopManager", "WorkShopManager" },
+        //            { "WorkShopEmployee", "WorkShopEmployee" },
+        //            { "TallyClerk", "TallyClerk" },
+        //            { "ChefEngineer", "ChefEngineer" },
+        //            { "Engineer", "Engineer" },
+        //            { "Stock", "Stock" },
+        //            { "TrackingUser", "TrackingUser" }
+        //        };
+        //    var matchedRole = userRoles.FirstOrDefault(role => RoleAreaMap.ContainsKey(role));
+        //    if (matchedRole != null)
+        //    {
+        //        string area = RoleAreaMap[matchedRole];
+        //        return RedirectToAction("Index", "Home", new { area });
+        //    }
+
+        //    ModelState.AddModelError("", "KullanÄ±cÄ± rolÃ¼ bulunamadÄ±");
+        //    return View(model);
+        //}
+
 
 
         [HttpGet]
@@ -87,6 +137,8 @@ namespace MpsKalayciDenizcilik.Controllers
 
             return View();
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> AddUserForAdmin(UserSaveViewModel model)
@@ -102,7 +154,7 @@ namespace MpsKalayciDenizcilik.Controllers
 
             if (result.Succeeded)
             {
-                TempData["SuccessMessage"]="üyelik baþarýlý";
+                TempData["SuccessMessage"]="Ã¼yelik baÅŸarÄ±lÄ±";
                 return View("Index");
 
             }

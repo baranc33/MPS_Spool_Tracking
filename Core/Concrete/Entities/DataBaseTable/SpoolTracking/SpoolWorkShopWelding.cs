@@ -4,7 +4,7 @@ using Core.Concrete.Entities.DataBaseTable.EmployeeData;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class SpoolWorkShopWelding : MpsStandartBaseEntity, IMpsEntity
+    public class SpoolWorkShopWelding : MpsStandardBaseEntity, IMpsEntity
     {
 
         public bool RootWeldingOn { get; set; } // Kök Kaynak Varmı

@@ -5,7 +5,7 @@ using Core.Concrete.Entities.DataBaseTable.UsersData;
 
 namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 {
-    public class Employee : MpsStandartBaseEntity, IMpsEntity
+    public class Employee : MpsStandardBaseEntity, IMpsEntity
     {
         // Sadece Personel Kaydı yapılırken Gerekecek Zorunlu bilgiler.
         public string Name { get; set; }

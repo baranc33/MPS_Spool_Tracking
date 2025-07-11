@@ -9,7 +9,7 @@ namespace DataAccess.Mapping
 
         public void Configure(EntityTypeBuilder<MpsUser> builder)
         {
-            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.IsDeleted).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
             builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
             builder.Property(r => r.ModifiedUserName).IsRequired(true);

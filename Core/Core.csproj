@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\Entities\DataBaseTable\BackUpEntity\" />
+    <Compile Remove="Concrete\Entities\DataBaseTable\BackUpEntity\**" />
+    <EmbeddedResource Remove="Concrete\Entities\DataBaseTable\BackUpEntity\**" />
+    <None Remove="Concrete\Entities\DataBaseTable\BackUpEntity\**" />
   </ItemGroup>
 
   <ItemGroup>

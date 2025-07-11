@@ -18,6 +18,7 @@ namespace Core.Concrete.ViewModels.SpoolNavigator
 
 
 
+
         public ulong CircutSystemId { get; set; }
         public CircutSystemViewModel CircutSystem { get; set; }
 
