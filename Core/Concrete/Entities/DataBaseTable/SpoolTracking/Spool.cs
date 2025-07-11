@@ -1,14 +1,15 @@
-﻿
-using Core.Abstract;
+﻿using Core.Abstract;
 using Core.Concrete.Entities.BaseEntity;
+using Core.Helper.SpoolMethod;
 
 namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 {
-    public class Spool:MpsTinyBaseEntity,IMpsEntity
+    public class Spool : MpsStandartBaseEntity, IMpsEntity
     {
-        // oluşturan değiştiren ve tarihleri içersindeki Navigasyon tablosundaolacaktır
 
 
+
+        public DateTime CuttingTime { get; set; }
         public ushort No { get; set; }
         public string SpoolName { get; set; }// 30
         public byte spoolStatus { get; set; } // spool nerde 
@@ -17,7 +18,7 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
         public byte SendingLocation { get; set; }
         public ushort Diameter { get; set; }
         public float TotalKg { get; set; }
-      
+
         public string Note { get; set; }
 
         public bool AssemblyOur { get; set; }
@@ -30,8 +31,8 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
 
 
 
+        public ulong CircutSystemId { get; set; }
         public CircutSystem CircutSystem { get; set; }
-        public uint CircutSystemId { get; set; }
 
 
         public SpoolWorkShopAssembly SpoolWorkShopAssembly { get; set; }
@@ -52,24 +53,10 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
         // Kalite Kontrol Yapıldı 7 
         // sevk bekliyor 8
         // sevk edildi  9
-        public string WhereIsSpool()
+        public string WhereIsSpool(byte spoolStatus)
         {
 
-            switch (this.spoolStatus)
-            {
-                case 0: return "İmalat Bekleniyor";
-                case 1: return "İmalat Başladı";
-                case 2: return "Kaynak Bekleniyor";//İmalat Bitti / 
-                case 3: return "Kaynakta Başladı";
-                case 4: return "K.K. Bekleniyor";
-                case 5: return "Sevk Bekleniyor";
-                case 6: return "Sevk Edildi";
-                case 7: return "Tersanede";
-                case 8: return "Montaj Yapıldı";
-                default:
-                    return "Bilinmiyor";
-            }
-
+            return SpoolMethods.WhereIsSpool(spoolStatus);
         }
 
     }

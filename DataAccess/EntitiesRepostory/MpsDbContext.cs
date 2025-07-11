@@ -15,7 +15,7 @@ namespace DataAccess.EntitiesRepostory
         {
         }
         public DbSet<Stock> Stock { get; set; }
-        public DbSet<ScoreCard> ScoreCard { get; set; }
+        public DbSet<EmployeeScoreCard> ScoreCard { get; set; }
         public DbSet<Spool> Spools { get; set; }
         public DbSet<EmployeeWork> EmployeeWork { get; set; }
 

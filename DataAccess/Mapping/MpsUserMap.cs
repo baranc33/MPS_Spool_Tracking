@@ -7,11 +7,15 @@ namespace DataAccess.Mapping
     public class MpsUserMap : IEntityTypeConfiguration<MpsUser>
     {
 
-
-
         public void Configure(EntityTypeBuilder<MpsUser> builder)
         {
-           
+            builder.Property(r => r.IsDelete).IsRequired(true);
+            builder.Property(r => r.ReallyDeleted).IsRequired(true);
+            builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
+            builder.Property(r => r.ModifiedUserName).IsRequired(true);
+            builder.Property(r => r.ModifiedTime).IsRequired(true);
+            builder.Property(r => r.CreateTime).IsRequired(true);
+
             builder.Property(r => r.UserName).HasMaxLength(50);
             builder.Property(r => r.NormalizedUserName).HasMaxLength(50);
 

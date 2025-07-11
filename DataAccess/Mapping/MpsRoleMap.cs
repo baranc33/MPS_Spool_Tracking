@@ -18,59 +18,68 @@ namespace DataAccess.Mapping
                   Id = "1",
                   Name = "Admin",
                   NormalizedName = "ADMIN",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               },
               new MpsRole
               {
                   Id = "2",
                   Name = "Manager",
                   NormalizedName = "MANAGER",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }, new MpsRole
               {
                   Id = "3",
                   Name = "WorkShopManager",
                   NormalizedName = "WORKSHOPMANAGER",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }, new MpsRole
               {
                   Id = "4",
                   Name = "WorkShopEmployee",
                   NormalizedName = "WORKSHOPEMPLOYEE",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               },
               new MpsRole
               {
                   Id = "5",
                   Name = "TallyClerk",
                   NormalizedName = "TALLYCLERK",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }, new MpsRole
               {
                   Id = "6",
                   Name = "ChefEngineer",
-                  NormalizedName = "CHEFENGINEERR",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  NormalizedName = "CHEFENGINEER",
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }, 
               new MpsRole
               {
                   Id = "7",
                   Name = "Engineer",
                   NormalizedName = "ENGINEER",
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }
               , new MpsRole
               {
                   Id = "8",
                   Name = "Stock",
                   NormalizedName = "STOCK".ToUpper(),
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }, new MpsRole
               {
                   Id = "9",
                   Name = "TrackingUser",
                   NormalizedName = "TrackingUser".ToUpper(),
-                  ConcurrencyStamp = Guid.NewGuid().ToString()
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  ReallyDeleted=false
               }
 
                 );

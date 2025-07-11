@@ -94,10 +94,20 @@ where TEntity : class, IMpsEntity, new()
         }
 
 
-        public async Task<TEntity> AddAsync(TEntity Entity)
+        public async Task<(TEntity, bool, string)> AddAsync(TEntity Entity)
         {
-            await _dbSet.AddAsync(Entity);
-            return Entity;
+            try
+            {
+                await _dbSet.AddAsync(Entity);
+
+            }
+            catch (Exception ex)
+            {
+                return (Entity, false , ex.Message);
+
+            }
+            return (Entity, true,"Başarılı");
+
         }
 
         public async Task<bool> AddRangeAsync(ICollection<TEntity> Entities)
@@ -159,5 +169,6 @@ where TEntity : class, IMpsEntity, new()
 
         }
 
+       
     }
 }

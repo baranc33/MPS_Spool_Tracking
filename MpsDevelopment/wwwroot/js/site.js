@@ -19,9 +19,3 @@ function myFunctionCollapse() {
     );
 }
 
-
-
-var messageBoxColor = '@TempData["MessageColor"]';
-console.log(messageBoxColor);
-var d = document.getElementById("MessageBox");
-d.classList.add(messageBoxColor);

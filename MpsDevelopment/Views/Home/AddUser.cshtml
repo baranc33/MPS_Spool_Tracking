@@ -17,12 +17,7 @@
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Kullanıcı Kayıt Formu </h3>
 
 
-                        @if (TempData["ErrorMessage"]!=null)
-                        {
-                            <div class="alert alert-danger" role="alert">
-                                @TempData["ErrorMessage"]
-                            </div>
-                        }
+                        @await Html.PartialAsync("MessageViewModel");
 
                         <form  asp-controller="Home" asp-action="AddUser" method="post">
 

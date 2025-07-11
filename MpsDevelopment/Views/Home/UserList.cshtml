@@ -18,10 +18,10 @@
             </a>
         </div>
 
-        @if (TempData["SuccessMessage"]!=null)
+        @if (TempData["Message"]!=null)
         {
             <div class="alert alert-info" role="alert">
-                @TempData["SuccessMessage"]
+                @TempData["Message"]
             </div>
         }
     </div>
@@ -58,13 +58,13 @@
                                 <td>@item.PasswordBackUp</td>
 
                                 <td>
-                                    <a class="btn btn-primary" asp-route-UserId="@item.Id" asp-action="UpdateUser" asp-controller="User" asp-area="Admin">Güncelle</a>
+                                    <a class="btn btn-primary" asp-route-UserId="@item.Id" asp-action="ModifiedUser" asp-controller="Home">Güncelle</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="AssignRoleToUser" asp-controller="User" asp-area="Admin">Yetkilendir</a>
+                                    <a class="btn btn-primary" asp-route-UserId="@item.Id" asp-action="AssignRoleToUser" asp-controller="Home">Yetkilendir</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" asp-route-UserId="@item.Id" asp-action="RemoveUser" asp-controller="User" asp-area="Admin">Sil</a>
+                                    <a class="btn btn-primary" asp-route-UserId="@item.Id" asp-action="" asp-controller="Home">Sil</a>
                                 </td>
                             </tr>
                         }

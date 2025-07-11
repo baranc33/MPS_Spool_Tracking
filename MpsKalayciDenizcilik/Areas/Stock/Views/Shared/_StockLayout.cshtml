@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] ~ Kalayci Denizcilik</title>
+    @await Html.PartialAsync("_CssPartial")
+
+</head>
+<body>
+
+
+
+	<header>
+		<!-- Spinner Start -->
+		<div id="spinner"
+			 class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+			<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+		</div>
+		<!-- Spinner End -->
+		<!-- Topbar Start -->
+		<div class="container-fluid bg-primary text-primay bg-white d-none d-lg-flex wow fadeIn" data-wow-delay="0.1s" @* style="background-color:#7fb0d1" *@>
+			<div class="container py-3">
+				<div class="d-flex align-items-center">
+					<a asp-action="index" asp-controller="home">
+
+						<h1 class="text-primary fw-bold m-0 ">
+							<img width="50" height="50" style="margin-top:-10px;" alt="LogoBulunamadı" src="~/Template/img/kalayci_denizcilik_logo_Temiz.png">
+							Kalaycı Denizcilik
+						</h1>
+					</a>
+
+					<div class="ms-auto d-flex align-items-center ">
+						<div>
+							<small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>
+								Balçık, Organize Cd. No:14/2, 41400 Gebze/Kocaeli
+							</small>
+							<br />
+							<small class="ms-4"><i class="fa fa-envelope me-3"></i>info@kalaycidenizcilik.com</small>
+							<small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+90 (533) 765 54 27</small>
+
+						</div>
+
+						<div class="ms-3 d-flex">
+
+							<a class="btn btn-sm-square btn-light text-primary ms-2"
+							   target="_blank"
+							   href="https://www.linkedin.com/company/kalayci-deni%CC%87zci%CC%87li%CC%87k/?viewAsMember=true">
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+
+		<!--   Topbar End -->
+		@* @await Html.PartialAsync("_Navbar"); *@
+
+		<!-- Navbar Start -->
+		<div class="container-fluid bg-white sticky-top wow fadeIn" data-wow-delay="0.1s" style="margin-top:-20px;">
+			<div class="container">
+
+				@*      <a href="index.html" style="margin-left:-200px;  margin-top:15px; position:absolute; ">
+                    <h2 class="text-primary fw-bold m-0">Kalaycı Denizcilik</h2>
+                </a> *@
+				<nav class="navbar navbar-expand-lg  navbar-light p-lg-0 ">
+
+					<a asp-controller="Home" asp-action="" class="navbar-brand d-lg-none">
+						<h1 class="fw-bold m-0 text-primary">Kalayci Denizcilik</h1>
+					</a>
+					<button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+							data-bs-target="#navbarCollapse" onclick="myFunctionCollapse()">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapses">
+						<div class="navbar-nav">
+							<a id="index" asp-controller="Home" asp-action="index" class="nav-item nav-link">Ana Sayfa</a>
+							<a id="about" asp-controller="Home" asp-action="About" class="nav-item nav-link">Hakkımızda</a>
+							<a id="service" asp-controller="Home" asp-action="ServiceTrading" class="nav-item nav-link">Projelerimiz</a>
+							<a id="team" asp-controller="Home" asp-action="Team" class="nav-item nav-link">Takım</a>
+							<a id="referance" asp-controller="Home" asp-action="Referance" class="nav-item nav-link">Referanslar</a>
+							<a id="contact" asp-controller="Home" asp-action="contact" class="nav-item nav-link">iletişim</a>
+						</div>
+						@* <div class="ms-auto d-none d-lg-block">
+							<a style="border-radius:15px; background-color:#7fb0d1;"
+							  asp-controller="home" asp-action="login" class="btn btn-primary py-2 px-3">Giriş Yap</a>
+						</div> *@
+					</div>
+				</nav>
+			</div>
+		</div>
+
+
+		<!-- Navbar End -->
+		@RenderSection("Carousel", false);
+
+
+		<div class="container">
+			<div role="main" class="pb-3">
+				@RenderBody()
+			</div>
+		</div>
+	</header>
+
+	<footer class=" footer text-muted">
+		<div class="container">
+			&copy; 2025 - Kalayci  - <a asp-area="" asp-controller="Home" asp-action="Login" class="text-primary">Denizcilik</a>
+		</div>
+	</footer>
+
+	@await Html.PartialAsync("_JsPartial");
+	@await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>

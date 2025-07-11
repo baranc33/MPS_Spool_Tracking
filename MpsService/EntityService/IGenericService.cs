@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace MpsService.EntityService
 {
-    public interface IGenericService<TEntity> where TEntity:class,IMpsEntity,new()
+    public interface IGenericService<TEntity> where TEntity:class,new()
     {
         Task<TEntity> AddAsync(TEntity Entity);
         Task<TEntity> UpdateAsync(TEntity Entity);

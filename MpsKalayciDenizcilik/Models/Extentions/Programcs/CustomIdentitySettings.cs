@@ -16,7 +16,7 @@ namespace MpsKalayciDenizcilik.Models.Extentions.Programcs
             { // user ve role için kurallar
                 opt.User.RequireUniqueEmail = true; // Id Zorunlu
                 //opt.User.AllowedUserNameCharacters = "abcdefghiıjklmnopqrstuvwxyzABCDEFGHIİJKLMNOPQRSTUVWXYZ0123456789-._@+";// kullanılabilecek karakterler
-                opt.User.AllowedUserNameCharacters = "öÖğĞüÜşŞçÇabcdefghiıjklmnopqrstuvwxyzABCDEFGHIİIJKLMNOPQRSTUVWXYZ0123456789-._@+";// kullanılabilecek karakterler
+                opt.User.AllowedUserNameCharacters = "öÖğĞüÜşŞçÇabcdefghiıjklmnopqrstuvwxyzABCDEFGHIİIJKLMNOPQRSTUVWXYZ0123456789-._+";// kullanılabilecek karakterler
 
                 opt.Password.RequiredLength = 6; // Şifre uzunluğu
                 opt.Password.RequireDigit = true; // Şifre rakam içermeli

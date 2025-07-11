@@ -1,5 +1,4 @@
-using Core.Concrete.ViewModel;
-using Core.Concrete.ViewModel.User;
+using Core.Concrete.ViewModels.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MpsKalayciDenizcilik.Models;
@@ -19,7 +18,7 @@ namespace MpsKalayciDenizcilik.Controllers
             _logger = logger;
         }
 
-    
+
 
 
 
@@ -47,11 +46,31 @@ namespace MpsKalayciDenizcilik.Controllers
                     ModelState.AddModelError("", result);
                 else
                 {
-                    if (TempData["ReturnUrl"] != null)
-                        return Redirect(TempData["ReturnUrl"].ToString());
+                    // giriþ baþarýlý
+               
+                    ICollection<string> userRoles = await _userService.GetRolesAsync(model.UserName);
 
 
-                    return RedirectToAction("AdminIndex", "Home", new { area = "Admin" });
+                    foreach (var item in userRoles)
+                    {
+
+                        switch (item)
+                        {
+                            case "Admin": return RedirectToAction("Index", "Home", new { area = "Admin" });
+                            case "Manager": return RedirectToAction("Index", "Home", new { area = "Manager" });
+                            case "WorkShopManager": return RedirectToAction("Index", "Home", new { area = "WorkShopManager" });
+                            case "WorkShopEmployee": return RedirectToAction("Index", "Home", new { area = "WorkShopEmployee" });
+                            case "TallyClerk": return RedirectToAction("Index", "Home", new { area = "TallyClerk" });
+                            case "ChefEngineer": return RedirectToAction("Index", "Home", new { area = "ChefEngineer" });
+                            case "Engineer": return RedirectToAction("Index", "Home", new { area = "Engineer" });
+                            case "Stock": return RedirectToAction("Index", "Home", new { area = "Stock" });
+                            case "TrackingUser": return RedirectToAction("Index", "Home", new { area = "TrackingUser" });
+
+                        }
+                       
+                    }
+
+
                 }
             }
             else
@@ -65,7 +84,7 @@ namespace MpsKalayciDenizcilik.Controllers
         public async Task<IActionResult> AddUserForAdmin()
         {
 
-     
+
             return View();
         }
 
@@ -76,9 +95,9 @@ namespace MpsKalayciDenizcilik.Controllers
             {
                 return View();
             }
-     
 
-            UserSaveViewModel userSaveViewModel = new UserSaveViewModel(model.UserName, model.Email, model.Phone, model.Password, model.PasswordConfirm);
+
+            UserSaveViewModel userSaveViewModel = new UserSaveViewModel(model.UserName, model.Email, model.Password, model.PasswordConfirm);
             IdentityResult result = await _userService.CreateUser(userSaveViewModel);
 
             if (result.Succeeded)

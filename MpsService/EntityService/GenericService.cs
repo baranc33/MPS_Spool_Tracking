@@ -7,6 +7,7 @@ namespace MpsService.EntityService
     public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class, IMpsEntity, new()
     {
 
+
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMpsGenericRepository<TEntity> _repository;
         public GenericService(IUnitOfWork unitOfWork, IMpsGenericRepository<TEntity> repository)

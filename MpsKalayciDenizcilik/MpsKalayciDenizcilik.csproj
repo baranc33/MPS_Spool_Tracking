@@ -20,4 +20,25 @@
     <ProjectReference Include="..\MpsService\MpsService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\ChefEngineer\Data\" />
+    <Folder Include="Areas\ChefEngineer\Models\" />
+    <Folder Include="Areas\Engineer\Data\" />
+    <Folder Include="Areas\Engineer\Models\" />
+    <Folder Include="Areas\Manager\Data\" />
+    <Folder Include="Areas\Manager\Models\" />
+    <Folder Include="Areas\Stock\Data\" />
+    <Folder Include="Areas\Stock\Models\" />
+    <Folder Include="Areas\TallyClerk\Data\" />
+    <Folder Include="Areas\TallyClerk\Models\" />
+    <Folder Include="Areas\TrackingUser\Data\" />
+    <Folder Include="Areas\TrackingUser\Models\" />
+    <Folder Include="Areas\WorkShopEmployee\Data\" />
+    <Folder Include="Areas\WorkShopEmployee\Models\" />
+    <Folder Include="Areas\WorkShopManager\Data\" />
+    <Folder Include="Areas\WorkShopManager\Models\" />
+  </ItemGroup>
+
 </Project>

@@ -72,6 +72,40 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
+
+
+
+
+
+app.MapAreaControllerRoute(name: "Admin",
+    areaName: "Admin", pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "Manager",
+    areaName: "Manager", pattern: "Manager/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "WorkShopManager",
+    areaName: "WorkShopManager", pattern: "WorkShopManager/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "WorkShopEmployee",
+    areaName: "WorkShopEmployee", pattern: "WorkShopEmployee/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "TallyClerk",
+    areaName: "TallyClerk", pattern: "TallyClerk/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "ChefEngineer",
+    areaName: "ChefEngineer", pattern: "ChefEngineer/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "Engineer",
+    areaName: "Engineer", pattern: "Engineer/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "Stock",
+    areaName: "Stock", pattern: "Stock/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(name: "TrackingUser",
+    areaName: "TrackingUser", pattern: "TrackingUser/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -9,15 +9,22 @@ namespace DataAccess.Mapping
     {
         public void Configure(EntityTypeBuilder<SpoolWorkShopAssembly> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Id).ValueGeneratedOnAdd();
 
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
-
             builder.Property(r => r.IsDelete).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
+            builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
+            builder.Property(r => r.ModifiedUserName).IsRequired(true);
+            builder.Property(r => r.ModifiedTime).IsRequired(true);
+            builder.Property(r => r.CreateDate).IsRequired(true);
+            builder.Property(r => r.CreateDate).HasColumnType("date");
+
+            //builder.Property(r => r.CreateDate.ToString("dd/MM/yyyy hh"));
+            //builder.Property(r => r.ModifiedTime.ToString("dd/MM/yyyy hh:mm"));
+            //builder.Property(r => r.AssemblyTime.ToString("dd/MM/yyyy hh:mm"));
+
 
             builder.Property(r => r.SpoolId).IsRequired(true);
 
@@ -25,7 +32,7 @@ namespace DataAccess.Mapping
             builder.HasOne(a => a.SpoolNavigator).WithOne(u => u.SpoolWorkShopAssembly).HasForeignKey<SpoolNavigator>(s => s.SpoolWorkShopAssemblyId);
 
 
-            builder.HasOne<Employee>(a => a.AssemblyEmployee).WithMany(u => u.SpoolWorkShopAssembly).HasForeignKey(a => a.AssemblyEmployeeId);
+            builder.HasOne<Employee>(a => a.SpoolWorkShopAssemblyEmployee).WithMany(u => u.SpoolWorkShopAssembly).HasForeignKey(a => a.SpoolWorkShopAssemblyEmployeeId);
 
             
 

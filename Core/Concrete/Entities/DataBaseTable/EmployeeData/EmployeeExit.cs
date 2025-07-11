@@ -6,7 +6,7 @@ namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
     public class EmployeeExit : MpsStandartBaseEntity, IMpsEntity
     {
         // Hangi Personel
-        public uint EmployeeId { get; set; }
+        public ulong EmployeeId { get; set; }
         public Employee Employee { get; set; }
 
         // çalıştığı süreçte genel Puan Ortalaması

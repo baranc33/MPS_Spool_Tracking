@@ -8,8 +8,10 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
     public class Branch : MpsStandartBaseEntity, IMpsEntity
     {
 
-        public string BranchName { get; set; } = "Bilgi işlem";
-        public string BranchDetay { get; set; } = "Detay Verisi";
+        public string BranchName { get; set; } 
+
+        public string BranchDetail { get; set; } 
+
 
 
 
@@ -17,7 +19,8 @@ namespace Core.Concrete.Entities.DataBaseTable.SpoolTracking
         public ICollection<Employee> Employees { get; set; }
         public ICollection<EmployeeUser> EmployeeUsers { get; set; }
         public ICollection<EmployeeProject> EmployeeProjects { get; set; }
-
-
+        
+            
+            
     }
 }

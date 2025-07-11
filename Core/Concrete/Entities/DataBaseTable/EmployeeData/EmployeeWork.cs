@@ -6,9 +6,8 @@ namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 {
     public class EmployeeWork : MpsStandartBaseEntity, IMpsEntity
     {
-        public string WorkName { get; set; } = "Bilgi işlem";
-        public string WorkDetay { get; set; } = "Detay Verisi";
-
+        public string WorkName { get; set; } 
+        public string WorkDetail { get; set; } 
 
 
 

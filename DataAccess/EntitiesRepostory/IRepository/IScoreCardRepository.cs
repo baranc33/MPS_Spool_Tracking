@@ -2,7 +2,7 @@
 
 namespace DataAccess.EntitiesRepostory.IRepository
 {
-    public interface IScoreCardRepository : IMpsGenericRepository<ScoreCard>
+    public interface IScoreCardRepository : IMpsGenericRepository<EmployeeScoreCard>
     {
     }
 }

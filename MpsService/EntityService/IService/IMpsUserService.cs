@@ -1,6 +1,5 @@
 ﻿using Core.Concrete.Entities.DataBaseTable.UsersData;
-using Core.Concrete.ViewModel;
-using Core.Concrete.ViewModel.User;
+using Core.Concrete.ViewModels.User;
 using Microsoft.AspNetCore.Identity;
 
 namespace MpsService.EntityService.IService
@@ -9,10 +8,12 @@ namespace MpsService.EntityService.IService
     {
         Task<ICollection<UserViewModel>> GetAllUser();
         Task<IdentityResult> CreateUser(UserSaveViewModel model);
-  
-        Task<ICollection<MpsUser>> GetEngineerList();
+        Task<UserViewModel> ModifiedAsync(UserViewModel model);
+        Task<UserViewModel> GetUser(string Id);
+        Task<ICollection<string>> GetRolesAsync(string UserName);
 
         Task<string> Login(LoginViewModel model);
+
     }
   
 }

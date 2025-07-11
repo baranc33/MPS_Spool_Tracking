@@ -12,7 +12,7 @@ namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
         public string LastName { get; set; }
         public string SgkRegistrationNumber { get; set; }
         public string TcNumber { get; set; }
-        public DateTime BirthDay { get; set; }
+        public DateTime BirthDayDate { get; set; }
         public bool Gender { get; set; }// True erkek False Kadın
         public string Phone { get; set; }
         public string Picture { get; set; }
@@ -20,20 +20,21 @@ namespace Core.Concrete.Entities.DataBaseTable.EmployeeData
 
 
 
-        public uint BranchId { get; set; }
+        public ulong BranchId { get; set; }
         public Branch Branch { get; set; }
 
-        public uint EmployeeWorkId { get; set; }
+        public ulong EmployeeWorkId { get; set; }
         public EmployeeWork EmployeeWork { get; set; }//=> Personelin Yaptığı iş
 
 
-        public uint ShipYardId { get; set; }
+        public ulong ShipYardId { get; set; }
         public ShipYard ShipYard { get; set; }
 
         public EmployeeUser EmployeeUser { get; set; }
-        public ICollection<ScoreCard> ScoreCard { get; set; }
+        public ICollection<EmployeeScoreCard> ScoreCard { get; set; }
 
-        public ICollection<SpoolWorkShopWelding> SpoolWorkShopWelding { get; set; } //  Yaptığı Kaynaklar
+        public ICollection<SpoolWorkShopWelding> SpoolWorkShopRootWelding { get; set; } //  Yaptığı Kaynaklar
+        public ICollection<SpoolWorkShopWelding> SpoolWorkShopCoverWelding { get; set; } //  Yaptığı Kaynaklar
         public ICollection<SpoolWorkShopAssembly> SpoolWorkShopAssembly  { get; set; } // Yaptığı imalatlar
         public ICollection<SpoolAssembly> SpoolShipYardAssembly  { get; set; } // Yaptığı Montajlar
 

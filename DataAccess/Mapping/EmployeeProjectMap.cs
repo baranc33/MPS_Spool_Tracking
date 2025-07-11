@@ -10,12 +10,19 @@ namespace DataAccess.Mapping
     { 
         public void Configure(EntityTypeBuilder<EmployeeProject> builder)
         {
+
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedOnAdd();
-
             builder.Property(r => r.IsDelete).IsRequired(true);
             builder.Property(r => r.IsWork).IsRequired(true);
             builder.Property(r => r.ReallyDeleted).IsRequired(true);
+            builder.Property(r => r.ModifiedUserName).HasMaxLength(50);
+            builder.Property(r => r.ModifiedUserName).IsRequired(true);
+            builder.Property(r => r.ModifiedTime).IsRequired(true);
+            builder.Property(r => r.CreateDate).IsRequired(true);
+            builder.Property(r => r.CreateDate).HasColumnType("date");
+            builder.Property(r => r.StartDate).HasColumnType("date");
+
 
 
 

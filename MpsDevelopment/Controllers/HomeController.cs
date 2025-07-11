@@ -1,5 +1,5 @@
 using Core.Concrete.Entities.DataBaseTable.UsersData;
-using Core.Concrete.ViewModel.User;
+using Core.Concrete.ViewModels.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MpsDevelopment.Extentions.Identity;
@@ -13,14 +13,71 @@ namespace MpsDevelopment.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IMpsUserService _userService;
-        public HomeController(ILogger<HomeController> logger, IMpsUserService userService)
+        protected UserManager<MpsUser> _userManager;
+        private RoleManager<MpsRole> _roleManager;
+        private IMpsRoleService _roleService;
+
+        public HomeController(ILogger<HomeController> logger, IMpsUserService userService, UserManager<MpsUser> userManager, RoleManager<MpsRole> roleManager, IMpsRoleService roleService)
         {
+            _roleService=roleService;
             _userService=userService;
             _logger = logger;
+            _userManager=userManager;
+            _roleManager=roleManager;
         }
 
 
 
+
+
+        [HttpGet]
+        public async Task<IActionResult> AssignRoleToUser(string UserId)
+        {
+            var currentUser = await _userManager.FindByIdAsync(UserId);
+            ViewBag.UserID=UserId;
+            var roles = await _roleService.GetAllAsync();
+
+            var roleViewModel = new List<AssignRoleToUserViewModel>();
+
+            var userRoles = await _userManager.GetRolesAsync(currentUser);
+            foreach (var role in roles)
+            {
+                var assignRoleToUserViewModel = new AssignRoleToUserViewModel
+                {
+                    Id = role.Id,
+                    Name = role.Name,
+                };
+                if (userRoles.Contains(role.Name))
+                {
+                    assignRoleToUserViewModel.Exist = true;
+                }
+
+                roleViewModel.Add(assignRoleToUserViewModel);
+            }
+
+            return View(roleViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRoleToUser(List<AssignRoleToUserViewModel> requestList, string UserId)
+        {
+
+            var User = await _userManager.FindByIdAsync(UserId);
+
+            foreach (var item in requestList)
+            {
+                if (item.Exist)
+                {
+                    await _userManager.AddToRoleAsync(User, item.Name);
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(User, item.Name);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
 
 
 
@@ -78,16 +135,29 @@ namespace MpsDevelopment.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> ModifiedUser(int UserId)
+        public async Task<IActionResult> ModifiedUser(string UserId)
         {
-            return View();
+            UserViewModel model = await _userService.GetUser(UserId);
+            return View(model);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> ModifiedUser()
+        public async Task<IActionResult> ModifiedUser(UserViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = "Gerekli Alanlarý Doldurunuz";
+                TempData["MessageColor"] = "alert-danger";
+                return View(model);
+            }
+            else
+            {
+                await _userService.ModifiedAsync(model);
+                TempData["Message"] = "Ýþlem Baþarýlý";
+                TempData["MessageColor"] = "alert-danger";
+                return RedirectToAction("UserList");
+            }
         }
 
 
